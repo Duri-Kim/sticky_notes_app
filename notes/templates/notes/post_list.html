@@ -1,0 +1,14 @@
+<!-- templates/notes/post_list.html -->
+{% extends 'notes/base.html' %}
+
+{% block title %}Posts List{% endblock %}
+
+{% block content %}
+<h1>Posts</h1>
+<a href="{% url 'post_create' %}">New Post</a>
+<ul>
+    {% for post in posts %}
+    <li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

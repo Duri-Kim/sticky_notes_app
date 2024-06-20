@@ -1,0 +1,14 @@
+<!-- templates/notes/note_form.html -->
+{% extends 'notes/base.html' %}
+
+{% block title %}New Note{% endblock %}
+
+{% block content %}
+<h1>New Note</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'note_list' %}">Back to Notes</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+<!-- templates/notes/post_detail.html -->
+{% extends 'notes/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.content }}</p>
+<a href="{% url 'post_update' pk=post.pk %}">Edit</a>
+<a href="{% url 'post_delete' pk=post.pk %}">Delete</a>
+<a href="{% url 'post_list' %}">Back to Posts</a>
+{% endblock %}
