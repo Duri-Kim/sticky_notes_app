@@ -1,95 +1,87 @@
 # Sticky Notes Application
 
-This is a Django-based web application for creating, updating, and managing notes and posts. Each note and post is associated with a user, providing a personalized experience.
+## Description
+The Sticky Notes application is a web-based platform that allows users to create, update, view, and delete notes and posts. This project is developed using Django, a high-level Python web framework. Learning this aspect of coding is important as it provides hands-on experience with web development, handling user input, and interacting with a database.
 
-## Features
-
-- User authentication
-- Create, update, and delete notes
-- Create, update, and delete posts
-- Detailed views for notes and posts
-- List views for all notes and posts
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- You have installed Python 3.8 or later.
-- You have installed Django 3.1 or later.
-- You have a basic understanding of Django and Python.
+## Table of Contents
+1. [Installation](#installation)
+2. [Usage](#usage)
+    - [Creating a Note](#creating-a-note)
+    - [Updating a Note](#updating-a-note)
+    - [Viewing a Note](#viewing-a-note)
+    - [Deleting a Note](#deleting-a-note)
+    - [Creating a Post](#creating-a-post)
+    - [Updating a Post](#updating-a-post)
+    - [Viewing a Post](#viewing-a-post)
+    - [Deleting a Post](#deleting-a-post)
+3. [Credits](#credits)
 
 ## Installation
-
-To install this project, follow these steps:
+To run this project locally, follow these steps:
 
 1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/your-username/sticky-notes.git
+    ```sh
+    git clone https://github.com/yourusername/sticky_notes.git
     ```
-
 2. Navigate to the project directory:
-
-    ```bash
-    cd sticky-notes
+    ```sh
+    cd sticky_notes
     ```
-
-3. Create a virtual environment:
-
-    ```bash
+3. Create and activate a virtual environment:
+    ```sh
     python -m venv venv
+    source venv/bin/activate   # On Windows use `venv\Scripts\activate`
     ```
-
-4. Activate the virtual environment:
-
-    - On Windows:
-
-        ```bash
-        venv\Scripts\activate
-        ```
-
-    - On macOS/Linux:
-
-        ```bash
-        source venv/bin/activate
-        ```
-
-5. Install the required dependencies:
-
-    ```bash
+4. Install the required packages:
+    ```sh
     pip install -r requirements.txt
     ```
-
-6. Apply migrations:
-
-    ```bash
+5. Apply the migrations to set up the database:
+    ```sh
     python manage.py migrate
     ```
-
-7. Create a superuser:
-
-    ```bash
-    python manage.py createsuperuser
-    ```
-
-8. Run the development server:
-
-    ```bash
+6. Run the development server:
+    ```sh
     python manage.py runserver
     ```
 
 ## Usage
 
-1. Open your web browser and go to `http://127.0.0.1:8000/`.
-2. Log in using the superuser credentials you created.
-3. Create, update, and delete notes and posts from the web interface.
+### Creating a Note
+1. Navigate to the home page: `http://127.0.0.1:8000/`
+2. Click on "New Note".
+3. Fill in the title and content of the note and click "Save".
 
-## Project Structure
+### Updating a Note
+1. Navigate to the note you want to update: `http://127.0.0.1:8000/note/<note_id>/`
+2. Click on "Edit".
+3. Update the title and content of the note and click "Save".
 
-- `views.py`: Contains all the view functions for handling requests and rendering templates.
-- `models.py`: Defines the data models for notes and posts.
-- `forms.py`: Contains form classes for creating and updating notes and posts.
-- `urls.py`: Maps URL patterns to view functions.
-- `templates/`: Contains HTML templates for rendering the web pages.
-- `static/`: Contains static files such as CSS and JavaScript.
-- `tests.py`: Contains test cases for models and views.
+### Viewing a Note
+1. Navigate to the home page: `http://127.0.0.1:8000/`
+2. Click on the title of the note you want to view.
+
+### Deleting a Note
+1. Navigate to the note you want to delete: `http://127.0.0.1:8000/note/<note_id>/`
+2. Click on "Delete".
+
+### Creating a Post
+1. Navigate to the Bulletin Board: `http://127.0.0.1:8000/posts/`
+2. Click on "New Post".
+3. Fill in the title and content of the post and click "Save".
+
+### Updating a Post
+1. Navigate to the post you want to update: `http://127.0.0.1:8000/post/<post_id>/`
+2. Click on "Edit".
+3. Update the title and content of the post and click "Save".
+
+### Viewing a Post
+1. Navigate to the Bulletin Board: `http://127.0.0.1:8000/posts/`
+2. Click on the title of the post you want to view.
+
+### Deleting a Post
+1. Navigate to the post you want to delete: `http://127.0.0.1:8000/post/<post_id>/`
+2. Click on "Delete".
+
+## Credits
+This application was developed by [Duri Kim](https://github.com/Duri-Kim).
