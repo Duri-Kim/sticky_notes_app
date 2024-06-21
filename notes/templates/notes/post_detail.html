@@ -6,6 +6,7 @@
 {% block content %}
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
+<!-- Links to edit and delete the post, and to go back to the list of posts -->
 <a href="{% url 'post_update' pk=post.pk %}">Edit</a>
 <a href="{% url 'post_delete' pk=post.pk %}">Delete</a>
 <a href="{% url 'post_list' %}">Back to Posts</a>

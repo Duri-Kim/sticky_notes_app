@@ -1,19 +1,45 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-# Model representing a note
 class Note(models.Model):
-    title = models.CharField(max_length=200)  # Title of the note
-    content = models.TextField()  # Content of the note
+    """
+    Model representing a note.
+
+    Attributes:
+        title (str): The title of the note, with a maximum length of 200
+        characters.
+        content (str): The content of the note.
+        user (User): The user associated with the note. This is a foreign key
+        to the User model.
+    """
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title  # String representation of the Note object
+        """
+        String representation of the Note object, returning the title.
+        """
+        return self.title
 
 
-# Model representing a post
 class Post(models.Model):
-    title = models.CharField(max_length=200)  # Title of the post
-    content = models.TextField()  # Content of the post
+    """
+    Model representing a post.
+
+    Attributes:
+        title (str): The title of the post, with a maximum length of 200
+        characters.
+        content (str): The content of the post.
+        user (User): The user associated with the post. This is a foreign key
+        to the User model.
+    """
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title  # String representation of the Post object
+        """
+        String representation of the Post object, returning the title.
+        """

@@ -6,6 +6,7 @@
 {% block content %}
 <h1>{{ note.title }}</h1>
 <p>{{ note.content }}</p>
+<!-- Links to edit and delete the note, and to go back to the list of notes -->
 <a href="{% url 'note_update' pk=note.pk %}">Edit</a>
 <a href="{% url 'note_delete' pk=note.pk %}">Delete</a>
 <a href="{% url 'note_list' %}">Back to Notes</a>

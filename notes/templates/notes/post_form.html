@@ -5,10 +5,12 @@
 
 {% block content %}
 <h1>New Post</h1>
+<!-- Form to create a new post -->
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
 </form>
+<!-- Link to go back to the list of posts -->
 <a href="{% url 'post_list' %}">Back to Posts</a>
 {% endblock %}

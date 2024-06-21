@@ -5,8 +5,10 @@
 
 {% block content %}
 <h1>Posts</h1>
+<!-- Link to create a new post -->
 <a href="{% url 'post_create' %}">New Post</a>
 <ul>
+    <!-- Loop through all posts and create a list item for each post -->
     {% for post in posts %}
     <li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></li>
     {% endfor %}
