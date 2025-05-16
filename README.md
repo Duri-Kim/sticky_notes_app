@@ -21,17 +21,25 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/Duri-Kim/sticky_notes.git
+    git clone https://github.com/Duri-Kim/sticky_notes_app.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd sticky_notes
+    cd sticky_notes_app
     ```
 3. Create and activate a virtual environment:
-    ```sh
-    python -m venv venv
-    source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+    - On **Windows (PowerShell)**:
     ```
+    python -m venv venv
+    .\venv\Scripts\Activate
+    ```
+
+    - On **macOS/Linux**:
+    ```
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+     
 4. Install the required packages:
     ```sh
     pip install -r requirements.txt
