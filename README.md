@@ -28,10 +28,18 @@ To run this project locally, follow these steps:
     cd sticky_notes_app
     ```
 3. Create and activate a virtual environment:
-    ```sh
-    python -m venv venv
-    source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+    - On **Windows (PowerShell)**:
     ```
+    python -m venv venv
+    .\venv\Scripts\Activate
+    ```
+
+  - On **macOS/Linux**:
+    ```
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+     
 4. Install the required packages:
     ```sh
     pip install -r requirements.txt
