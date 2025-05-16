@@ -34,7 +34,7 @@ To run this project locally, follow these steps:
     .\venv\Scripts\Activate
     ```
 
-  - On **macOS/Linux**:
+    - On **macOS/Linux**:
     ```
     python3 -m venv venv
     source venv/bin/activate
