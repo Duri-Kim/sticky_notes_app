@@ -25,7 +25,7 @@ To run this project locally, follow these steps:
     ```
 2. Navigate to the project directory:
     ```sh
-    cd sticky_notes
+    cd sticky_notes_app
     ```
 3. Create and activate a virtual environment:
     ```sh
