@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf2f2;
+            color: #b91c1c;
+            padding: 2em;
+            text-align: center;
+        }
+        .container {
+            border: 1px solid #fca5a5;
+            background-color: #fee2e2;
+            display: inline-block;
+            padding: 2em;
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 1em;
+        }
+        a {
+            display: inline-block;
+            margin-top: 1em;
+            color: #b91c1c;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Error</h1>
+        <p>{{ message }}</p>
+        <a href="{% url 'note_list' %}">Return to Notes</a>
+    </div>
+</body>
+</html>
