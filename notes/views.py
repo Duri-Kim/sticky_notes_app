@@ -10,7 +10,8 @@ GUEST_USERNAME = "guest_user"
 
 def get_guest_user():
     """
-    Retrieve or create the guest user.
+    Retrieve the guest user if exists; otherwise,
+    create one with a default password.
     """
     guest_user, created = User.objects.get_or_create(username=GUEST_USERNAME)
     if created:
@@ -22,11 +23,14 @@ def get_guest_user():
 # View to list all notes
 def note_list(request):
     """
-    Retrieve and display all notes.
+    Retrieve and display notes belonging to the authenticated user,
+    or the guest user if the user is not logged in.
     """
     if request.user.is_authenticated:
+        # Get notes for the logged-in user        
         notes = Note.objects.filter(user=request.user)
     else:
+        # Get notes for the guest user
         guest_user = get_guest_user()
         notes = Note.objects.filter(user=guest_user)
     return render(request, 'notes/note_list.html', {'notes': notes})
