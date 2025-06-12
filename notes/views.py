@@ -4,8 +4,19 @@ from .models import Note
 from .forms import NoteForm
 
 
-# Default user ID for testing purposes
-DEFAULT_USER_ID = 1  # Update this to match the ID of the default user in your database
+# Username of fallback guest user
+GUEST_USERNAME = "guest_user"
+
+
+def get_guest_user():
+    """
+    Retrieve or create the guest user.
+    """
+    guest_user, created = User.objects.get_or_create(username=GUEST_USERNAME)
+    if created:
+        guest_user.set_password("guest123") # Set a default password if created
+        guest_user.save()
+    return guest_user
 
 
 # View to list all notes
@@ -32,21 +43,17 @@ def note_detail(request, pk):
 # View to create a new note
 def note_create(request):
     """
-    Handle the creation of a new note.
+    Create a new note. Use authenticated user if available,
+    otherwise fall back to guest user.
     """
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
             note = form.save(commit=False)
             if request.user.is_authenticated:
-                note.user = request.user
+                note.user = request.user 
             else:
-                try:
-                    note.user = User.objects.get(pk=DEFAULT_USER_ID)
-                except User.DoesNotExist:
-                    return render(request, 'notes/error.html', {
-                        'message': f'Default user with ID 1 does not exist.'
-                    })
+                note.user = get_guest_user()
             note.save()
             return redirect('note_detail', pk=note.pk)
     else:
