@@ -24,7 +24,11 @@ def note_list(request):
     """
     Retrieve and display all notes.
     """
-    notes = Note.objects.all()
+    if request.user.is_authenticated:
+        notes = Note.objects.filter(user=request.user)
+    else:
+        guest_user = get_guest_user()
+        notes = Note.objects.filter(user=guest_user)
     return render(request, 'notes/note_list.html', {'notes': notes})
 
 
